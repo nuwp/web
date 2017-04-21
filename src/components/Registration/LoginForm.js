@@ -55,13 +55,13 @@ class LoginForm extends Component {
           onChange={this.onChange}
         />
         <RaisedButton
-          className="form-elements"
           primary
+          fullWidth
           type="submit"
           label="Login"
         />
         <RaisedButton
-          className="form-elements"
+          fullWidth
           label="Signup"
         />
       </form>

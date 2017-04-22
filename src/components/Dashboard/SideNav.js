@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Drawer from "material-ui/Drawer";
+import MenuItem from "material-ui/MenuItem";
 
 class SideNav extends Component {
 
@@ -7,27 +8,32 @@ class SideNav extends Component {
     super(props);
 
     this.state = {
-      open: this.props.sideNavOpen
+      sideNavOpen: this.props.sideNavOpen
     };
+    this.onRequestChange = this.onRequestChange.bind(this);
   }
 
-  toggleSideNav() {
-    this.setState({open:this.props.sideNavOpen});
-    return this.state.open;
+  componentWillReceiveProps(nextProps) {
+    this.setState({sideNavOpen:nextProps.sideNavOpen});
   }
-  closeDrawer() {
-    this.setState({ open: false });
+
+  onRequestChange(open, reason) {
+    if (reason === "clickaway" || "escape") {
+      this.props.closeSideNav();
+    }
   }
 
   render() {
-    // console.log(this.state.open);
-    console.log(this.props.sideNavOpen);
     return (
       <Drawer
         docked={false}
-        open={this.state.open}
-        onRequestChange={this.closeDrawer}
-      />
+        open={this.state.sideNavOpen}
+        onRequestChange={this.onRequestChange}
+      >
+        <MenuItem onTouchTap={this.props.closeSideNav}>Dashboard</MenuItem>
+        <MenuItem onTouchTap={this.props.closeSideNav}>Classes</MenuItem>
+        <MenuItem onTouchTap={this.props.closeSideNav}>Professors</MenuItem>
+      </Drawer>
     );
   }
 }

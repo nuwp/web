@@ -10,6 +10,7 @@ class Dashboard extends Component {
       sideNavOpen: false
     };
     this.toggleSideNav = this.toggleSideNav.bind(this);
+    this.closeSideNav = this.closeSideNav.bind(this);
   }
 
   toggleSideNav() {
@@ -20,6 +21,10 @@ class Dashboard extends Component {
     });
   }
 
+  closeSideNav() {
+    this.setState({sideNavOpen: false});
+  }
+
   render() {
     return (
       <div>
@@ -27,7 +32,10 @@ class Dashboard extends Component {
           title="NU Web Planner"
           onLeftIconButtonTouchTap={this.toggleSideNav}
         />
-        <SideNav sideNavOpen={this.state.sideNavOpen} />
+        <SideNav
+          closeSideNav={this.closeSideNav}
+          sideNavOpen={this.state.sideNavOpen}
+        />
       </div>
     );
   }

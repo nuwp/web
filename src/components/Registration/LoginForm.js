@@ -14,11 +14,11 @@ class LoginForm extends Component {
       email: "",
       password: ""
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onChange(e) {
+  handleChange(e) {
     if (e.target.name === "email") {
       this.setState({
         email: e.target.value,
@@ -32,19 +32,19 @@ class LoginForm extends Component {
     }
   }
 
-  onSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    alert(this.state.email + this.state.password);
+    this.props.login();
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <TextField
           name="email"
           style={this.textFieldStyle}
           floatingLabelText="Email"
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
         <TextField
           name="password"
@@ -52,16 +52,16 @@ class LoginForm extends Component {
           className="form-elements"
           floatingLabelText="Password"
           type="password"
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
         <RaisedButton
-          className="form-elements"
           primary
+          fullWidth
           type="submit"
           label="Login"
         />
         <RaisedButton
-          className="form-elements"
+          fullWidth
           label="Signup"
         />
       </form>

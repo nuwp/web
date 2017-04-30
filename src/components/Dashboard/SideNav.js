@@ -3,10 +3,8 @@ import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
 
 class SideNav extends Component {
-
   constructor(props) {
     super(props);
-
     this.state = {
       sideNavOpen: this.props.sideNavOpen
     };

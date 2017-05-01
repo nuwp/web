@@ -4,7 +4,7 @@ import theme from "./theme";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Registration from "./containers/Registration";
-import Dashboard from "./containers/Dashboard";
+import Main from "./containers/Main";
 import "./App.css";
 injectTapEventPlugin();
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
         <div className="container">
-          {this.state.loggedIn ? <Dashboard /> : <Registration login={this.login} />}
+          {this.state.loggedIn ? <Main /> : <Registration login={this.login} />}
         </div>
       </MuiThemeProvider>
     );

@@ -3,9 +3,9 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import theme from "./theme";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import Registration from "./containers/Registration";
+import Dashboard from "./containers/Dashboard";
 import "./App.css";
-import Login from "./components/Registration/Login";
-import Dashboard from "./components/Dashboard/Dashboard";
 injectTapEventPlugin();
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
         <div className="container">
-          {this.state.loggedIn ? <Dashboard /> : <Login login={this.login} />}
+          {this.state.loggedIn ? <Dashboard /> : <Registration login={this.login} />}
         </div>
       </MuiThemeProvider>
     );

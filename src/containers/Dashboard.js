@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AppBar from "material-ui/AppBar";
-import SideNav from "./SideNav";
+import SideNav from "../components/menu/SideNav";
 
 class Dashboard extends Component {
   constructor(props) {

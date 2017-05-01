@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import LoginForm from "./LoginForm";
-import "./Login.css";
+import LoginForm from "../components/registration/LoginForm";
+import "./Registration.css";
 
-class Login extends Component {
+class Registration extends Component {
 
   render() {
     return (
@@ -13,4 +13,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Registration;

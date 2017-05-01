@@ -1,27 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import AppBar from "material-ui/AppBar";
-import SideNav from "./SideNav";
+import SideNav from "../components/menu/SideNav";
+import { toggleSideNav, closeSideNav } from "../actions/sidenavActions";
 
-class Dashboard extends Component {
+const mapStateToProps = (store) => ({open: store.sidenav.open});
+
+class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sideNavOpen: false
-    };
     this.toggleSideNav = this.toggleSideNav.bind(this);
     this.closeSideNav = this.closeSideNav.bind(this);
   }
 
   toggleSideNav() {
-    this.setState(() => {
-      return {
-        sideNavOpen: !this.state.sideNavOpen
-      };
-    });
+    this.props.dispatch(toggleSideNav());
   }
 
   closeSideNav() {
-    this.setState({sideNavOpen: false});
+    this.props.dispatch(closeSideNav());
   }
 
   render() {
@@ -33,11 +30,11 @@ class Dashboard extends Component {
         />
         <SideNav
           closeSideNav={this.closeSideNav}
-          sideNavOpen={this.state.sideNavOpen}
+          sideNavOpen={this.props.open}
         />
       </div>
     );
   }
 }
 
-export default Dashboard;
+export default connect(mapStateToProps)(Main);

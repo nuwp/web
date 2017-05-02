@@ -5,14 +5,7 @@ import MenuItem from "material-ui/MenuItem";
 class SideNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sideNavOpen: this.props.sideNavOpen
-    };
     this.onRequestChange = this.onRequestChange.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({sideNavOpen:nextProps.sideNavOpen});
   }
 
   onRequestChange(open, reason) {
@@ -25,7 +18,7 @@ class SideNav extends Component {
     return (
       <Drawer
         docked={false}
-        open={this.state.sideNavOpen}
+        open={this.props.sidenavOpen}
         onRequestChange={this.onRequestChange}
       >
         <MenuItem onTouchTap={this.props.closeSideNav}>Dashboard</MenuItem>

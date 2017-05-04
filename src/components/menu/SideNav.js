@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Drawer from "material-ui/Drawer";
 import MenuItem from "material-ui/MenuItem";
+import { NavLink } from "react-router-dom";
 
 class SideNav extends Component {
   constructor(props) {
@@ -21,9 +22,25 @@ class SideNav extends Component {
         open={this.props.sidenavOpen}
         onRequestChange={this.onRequestChange}
       >
-        <MenuItem onTouchTap={this.props.closeSideNav}>Dashboard</MenuItem>
-        <MenuItem onTouchTap={this.props.closeSideNav}>Classes</MenuItem>
-        <MenuItem onTouchTap={this.props.closeSideNav}>Professors</MenuItem>
+        <MenuItem
+          onTouchTap={this.props.closeSideNav}
+          containerElement={<NavLink activeClassName="active" to="/" />}
+        >
+          Dashboard
+        </MenuItem>
+
+        <MenuItem
+          onTouchTap={this.props.closeSideNav}
+          containerElement={<NavLink activeClassName="active" to="/classes" />}
+        >
+          Classes
+        </MenuItem>
+        <MenuItem
+          onTouchTap={this.props.closeSideNav}
+          containerElement={<NavLink activeClassName="active" to="/professors" />}
+        >
+          Professors
+        </MenuItem>
       </Drawer>
     );
   }

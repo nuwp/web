@@ -6,7 +6,7 @@ import { toggleSideNav, closeSideNav } from "../actions/sidenavActions";
 
 const mapStateToProps = (store) => ({sidenav: store.sidenav});
 
-class Main extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.toggleSideNav = this.toggleSideNav.bind(this);
@@ -37,4 +37,4 @@ class Main extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Menu);

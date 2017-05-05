@@ -4,7 +4,7 @@ import AppBar from "material-ui/AppBar";
 import SideNav from "../components/menu/SideNav";
 import { toggleSideNav, closeSideNav } from "../actions/sidenavActions";
 
-const mapStateToProps = (store) => ({sidenav: store.sidenav});
+const mapStateToProps = (store) => ({sidenavState: store.sidenavState});
 
 class Menu extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Menu extends Component {
         />
         <SideNav
           closeSideNav={this.closeSideNav}
-          sidenavOpen={this.props.sidenav.open}
+          sidenavOpen={this.props.sidenavState.open}
         />
       </div>
     );

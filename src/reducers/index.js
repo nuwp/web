@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import sidenav from "./sidenavReducer";
+import sidenavState from "./sidenavReducer";
+import professorsState from "./professorsReducer";
 
 const reducers = combineReducers({
-  sidenav
+  sidenavState,
+  professorsState
 });
 
 export default reducers;
